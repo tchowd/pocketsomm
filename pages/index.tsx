@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { Center, Container, Flex, HStack, Link, Stack, useColorModeValue, VStack } from '@chakra-ui/react'
+import { Text, Center, Container, Flex, HStack, Link, Stack, useColorModeValue, VStack, Box } from '@chakra-ui/react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
@@ -11,8 +11,8 @@ const Home: NextPage = () => {
     <Container maxW={'6xl'} >  
      
       <Flex display={{ base: 'none', md: 'flex' }}>
-              <DesktopNav />
-        </Flex>
+          <DesktopNav />
+      </Flex>
 
         <MobileNav />
     </Container>
@@ -43,8 +43,24 @@ const DesktopNav = () => {
 
   return (
     <div >
-      {/* <Navbar />
-      <Footer /> */}
+      {/* <Navbar /> */}
+      <Center>
+        <VStack>
+        <Text> PocketSomm</Text>
+        <Text> PocketSomm</Text>
+        <Link href='/winepairing'> 
+        <Box>
+          Wine Pairing
+        </Box>
+        </Link>
+        <Link href='/foodpairing'> 
+        <Box>
+          Food Pairing
+        </Box>
+        </Link>
+        </VStack>
+        </Center>
+      {/* <Footer /> */}
       </div>
   );
 };

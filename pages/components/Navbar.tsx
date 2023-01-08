@@ -242,7 +242,7 @@ import {
     },
     {
       label: 'github',
-      href: '/github',
+      href: 'https://github.com/turja-c/pocketsomm',
     }
   ];
   
