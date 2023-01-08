@@ -10,7 +10,7 @@ const Recommendation = () => {
     const callGenerateEndpoint = async () => {
         setIsLoading(true);
         console.log("Calling OpenAI...")
-        const response = await fetch('/api/generate', {
+        const response = await fetch('/api/wine', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

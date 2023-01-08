@@ -6,7 +6,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const basePromptPrefix = "a blend of knowledge from Ronan Sayburn M.S. and Wolfgang Kneidinger. give the best wine in this format (year, name, region and explaination).";
+const basePromptPrefix = "output the best 5 pairing food in this format: name, ingredients and explaination why it matches the wine.";
 const generateAction = async (req: any, res: any) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`)

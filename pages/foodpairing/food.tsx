@@ -3,10 +3,6 @@ import { Box, Button, Center, Container, Divider, Flex, Heading, Link, Stack, Te
 
 
 
-
-
-
-
 const Recommendation = () => {
   return (
     <Container maxW={'6xl'} >   
@@ -60,7 +56,7 @@ const DesktopNav = () => {
     const callGenerateEndpoint = async () => {
         setIsLoading(true);
         console.log("Calling OpenAI...")
-        const response = await fetch('/api/generate', {
+        const response = await fetch('/api/food', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
