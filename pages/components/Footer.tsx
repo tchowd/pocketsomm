@@ -54,19 +54,10 @@ import {
           spacing={4}
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
-          <Text>tchowd © 2022 </Text>
+          <Text marginLeft={'6rem'}>pocketsomm © 2023 </Text>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href="https://twitter.com/tchowd_">
               <FaTwitter />
-            </SocialButton>
-            <SocialButton label={'Github'} href="https://github.com/turja-c">
-              <FaGithub />
-            </SocialButton>
-            <SocialButton label={'Linkedin'} href="https://linkedin.com/in/tchowd">
-              <FaLinkedin />
-            </SocialButton>
-            <SocialButton label={'Telegram'} href='https://telegram.org/tchowd'>
-              <FaTelegram />
             </SocialButton>
           </Stack>
         </Container>

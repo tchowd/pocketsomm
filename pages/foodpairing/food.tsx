@@ -24,21 +24,6 @@ const MobileNav = () => {
       >
     <Container maxW={'2xl'}>
         <VStack marginTop={'1rem'} marginBottom={'5rem'}>
-            <Heading as="h1">experiences</Heading> 
-            <Text color={'gray.500'}
-                fontSize={{ base: '1xl', sm: '1xl', lg: '1xl' }} 
-                marginTop={'1rem'}>
-                here are a few of my experiences. please feel free to contact me directly to learn more or peek my{' '}
-                <Link color='blue.500' target="_blank" href='https://linkedin.com/in/tchowd'>linkedin</Link>!
-            </Text>
-            <Divider  marginTop={'2rem'}/>
-            <Text fontSize={15}> Analyst @ Ripple Ventures </Text>
-            <Text fontSize={15}>Technical Analyst @ Alchemy </Text>
-            <Text fontSize={15}>Contributor & DevRel @ Developer DAO </Text>
-            <Text fontSize={15}>Software Consultant @ KPMG </Text>
-            <Text fontSize={15}>Strategy & SWE @ Scotiabank </Text>
-            <Text fontSize={15}>Head Of Digital Marketing @ Toronto Machine Learning Society (TMLS) </Text>
-            <Text fontSize={15}>Head Server Assistant @ Alo Food Group </Text>
 
         </VStack>
       </Container>
@@ -89,7 +74,7 @@ const DesktopNav = () => {
                 <Textarea
                     value={userInput}
                     onChange={userInputChange}
-                    placeholder='Here is a sample placeholder'
+                    placeholder='What a wine to pair...'
                     size='sm'
                     maxW={300}
                 />
@@ -102,7 +87,9 @@ const DesktopNav = () => {
             </Box>
 
             <Box>
-                {openaiOutput}
+            {openaiOutput.split(/(\d+\.\s)/).map((openaiOutput: any) =>
+                <Box >{openaiOutput.split((string: string) => string.trim() !== "")}</Box>)
+                }
             </Box>
             </Center>
         </Container>

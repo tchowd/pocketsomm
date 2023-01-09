@@ -9,7 +9,7 @@ const Recommendation = () => {
 
     const callGenerateEndpoint = async () => {
         setIsLoading(true);
-        console.log("Calling OpenAI...")
+
         const response = await fetch('/api/wine', {
             method: 'POST',
             headers: {
@@ -30,7 +30,13 @@ const Recommendation = () => {
         console.log(event.target.value);
         setUserInput(event.target.value);
     };
-
+    
+    const splitStringByNumericOrder = (openaiOutput: string) => {
+        const splitString = openaiOutput.split(/(\d+\.\s)/);
+        return splitString.filter(string => string.trim() !== "");
+      }
+    const test = splitStringByNumericOrder(openaiOutput)
+    console.log(test)
 
     return (
 
@@ -45,7 +51,7 @@ const Recommendation = () => {
                 <Textarea
                     value={userInput}
                     onChange={userInputChange}
-                    placeholder='Here is a sample placeholder'
+                    placeholder='Enter a dish to pair...'
                     size='sm'
                     maxW={300}
                 />
@@ -58,8 +64,22 @@ const Recommendation = () => {
             </Box>
 
             <Box>
-                {openaiOutput}
+            
+
+                {openaiOutput.split(/(\d+\.\s)/).map((openaiOutput: any) =>
+                <Box >{openaiOutput.split((string: string) => string.trim() !== "")}</Box>)
+                }
+
+
+
+            
+
+
+                
+
             </Box>
+            <br></br>
+            {/* {openaiOutput} */}
             </Center>
         </Container>
     )

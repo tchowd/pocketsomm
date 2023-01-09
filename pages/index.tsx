@@ -44,10 +44,12 @@ const DesktopNav = () => {
   return (
     <div >
       {/* <Navbar /> */}
-      <Center>
+      <Container maxW="6xl" marginTop={'-2rem'}>
         <VStack>
-        <Text> PocketSomm</Text>
-        <Text> PocketSomm</Text>
+          <Center>
+          <Text> PocketSomm</Text>
+          <Text> PocketSomm</Text>
+        </Center>
         <Link href='/winepairing'> 
         <Box>
           Wine Pairing
@@ -59,7 +61,7 @@ const DesktopNav = () => {
         </Box>
         </Link>
         </VStack>
-        </Center>
+        </Container>
       {/* <Footer /> */}
       </div>
   );
