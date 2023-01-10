@@ -65,17 +65,24 @@ const Recommendation = () => {
 
             <Box>
             
+                <Box>
+                    {openaiOutput.split(/(\d+\.\s)/).map((openaiOutput: string) => {
+                        const splitWineString = openaiOutput.split(" - ");
+                        let name = splitWineString[0];
+                        // console.log('this is the name', name)
+                        const description = splitWineString[1];
+                        console.log(name, description)
+                        name = name.replace(/^\d+\.\s/, "");
+                        return (
+                        <Text key={name} >
+                            <Text>{name}</Text>
+                        </Text>
 
-                {openaiOutput.split(/(\d+\.\s)/).map((openaiOutput: any) =>
-                <Box >{openaiOutput.split((string: string) => string.trim() !== "")}</Box>)
-                }
+                        );
+                    })}
+                </Box>
 
 
-
-            
-
-
-                
 
             </Box>
             <br></br>
