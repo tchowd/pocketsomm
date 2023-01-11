@@ -61,7 +61,7 @@ const Recommendation = () => {
 
 
                 <Button  
-                    // className={isLoading ? 'generate-button loading' : 'generate-button'}
+                    className={isLoading ? 'generate-button loading' : 'generate-button'}
                     onClick={callGenerateEndpoint}>
                         {isLoading ? <span className="loader"></span> :
                         <Button 

@@ -84,7 +84,7 @@ const DesktopNav = () => {
 
 
                 <Button  
-                    // className={isLoading ? 'generate-button loading' : 'generate-button'}
+                    className={isLoading ? 'generate-button loading' : 'generate-button'}
                     onClick={callGenerateEndpoint}>
                         {isLoading ? <span className="loader"></span> :
                         <Button 
@@ -99,7 +99,7 @@ const DesktopNav = () => {
                 <hr style={{marginTop: '2rem', marginBottom: '2rem'}}></hr>
             
             <Box>
-            {openaiOutput.split(/(\d+\.\s)/).map((openaiOutput: string) => {
+            {openaiOutput?.split(/(\d+\.\s)/).map((openaiOutput: string) => {
                         const splitWineString = openaiOutput.split(" - ")
                         const str = splitWineString.toString()
                         const dishName = str.substring(0, str.indexOf(":"));
