@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
-import { Box, Button, Center, Container, Text, Textarea } from '@chakra-ui/react'
+import { Box, Button, Center, Container, Text, Textarea, VStack } from '@chakra-ui/react'
 
 const Recommendation = () => {
 
     const [userInput, setUserInput] = useState('');
     const [openaiOutput, setOpenaiOutput] = useState('')
     const [isLoading, setIsLoading] = useState(false)
-
+    const [newSplitString, setNewSplitString] = useState('')
     const callGenerateEndpoint = async () => {
         setIsLoading(true);
 
@@ -36,47 +36,67 @@ const Recommendation = () => {
         return splitString.filter(string => string.trim() !== "");
       }
     const test = splitStringByNumericOrder(openaiOutput)
-    console.log(test)
+    // console.log(test)
 
     return (
 
         <Container margin={'5rem'}>
-            <Center>
-            <Text fontSize="2xl" fontWeight="bold" mb={4}>
-                Recommendation
+            
+            <Text fontSize="5xl" fontWeight="b" mb={4} >
+                Wine Pairing
+            </Text>
+            <Text fontSize="xl" fontWeight="b" marginTop={'-1rem'} >
+                Enter a dish below that will be paired with a wine. The more specific the dish, the better the pairing.
             </Text>
            
-
-            <Box marginTop={'15rem'}>
                 <Textarea
                     value={userInput}
                     onChange={userInputChange}
                     placeholder='Enter a dish to pair...'
-                    size='sm'
-                    maxW={300}
+                    marginTop={'1rem'}
+                    paddingRight={'10rem'}
+                    isRequired={true}
+                    borderColor={'blue.500'}
                 />
 
-                <Button 
-                    className={isLoading ? 'generate-button loading' : 'generate-button'}
-                    onClick={callGenerateEndpoint}>
-                        {isLoading ? <span className="loader"></span> : <p>Generate</p>}
-                </Button>
-            </Box>
 
+                <Button  
+                    // className={isLoading ? 'generate-button loading' : 'generate-button'}
+                    onClick={callGenerateEndpoint}>
+                        {isLoading ? <span className="loader"></span> :
+                        <Button 
+                            backgroundColor={'blue.400'}
+                            padding={'0.3rem'}
+                            borderRadius={'0.5rem'}
+                            color={'white'}
+                            _hover={{backgroundColor: 'blue.800'}}>
+                            Select a Wine
+                        </Button>}
+                </Button>
+                <hr style={{marginTop: '2rem', marginBottom: '2rem'}}></hr>
+            
+            <Center>
             <Box>
             
                 <Box>
                     {openaiOutput.split(/(\d+\.\s)/).map((openaiOutput: string) => {
-                        const splitWineString = openaiOutput.split(" - ");
-                        let name = splitWineString[0];
-                        // console.log('this is the name', name)
-                        const description = splitWineString[1];
-                        console.log(name, description)
-                        name = name.replace(/^\d+\.\s/, "");
+                        // console.log(openaiOutput) 
+                        const splitWineString = openaiOutput.split(" - ")
+                        // let name = splitWineString[0]
+                        const str = splitWineString.toString()
+                        const wineName = str.substring(0, str.indexOf(":"));
+                        const wineDescription = str.substring(str.indexOf(":") + 1 , str.length);
+
+
+                        // const description = splitWineString[1];
+                        const wineDescriptionFinal = wineDescription.replace(/^\d+\.\s/, "");
                         return (
-                        <Text key={name} >
-                            <Text>{name}</Text>
-                        </Text>
+                            <div>
+                            <Text as='b'>{wineName}</Text>
+                            <Text marginTop={'0.5rem'}>{wineDescriptionFinal}</Text>
+
+                             </div>
+                    
 
                         );
                     })}
@@ -85,9 +105,9 @@ const Recommendation = () => {
 
 
             </Box>
-            <br></br>
-            {/* {openaiOutput} */}
             </Center>
+            
+            
         </Container>
     )
 }

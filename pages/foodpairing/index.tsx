@@ -13,7 +13,7 @@ const FoodPairing: NextPage = () => {
     <Container maxW="6xl" >
         <Recommendation />
     </Container>
-    <Footer />
+    {/* <Footer /> */}
     </>
   )
 }

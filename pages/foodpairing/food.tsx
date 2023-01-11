@@ -64,45 +64,58 @@ const DesktopNav = () => {
 
   return (
     <Container margin={'5rem'}>
-            <Center>
-            <Text fontSize="2xl" fontWeight="bold" mb={4}>
-                Recommendation
+            
+            <Text fontSize="5xl" fontWeight="b" mb={4} >
+                Food Pairing
+            </Text>
+            <Text fontSize="xl" fontWeight="b" marginTop={'-1rem'} >
+                Enter a dish below that will be paired with a wine. The more specific the dish, the better the pairing.
             </Text>
            
-
-            <Box marginTop={'15rem'}>
                 <Textarea
                     value={userInput}
                     onChange={userInputChange}
-                    placeholder='What a wine to pair...'
-                    size='sm'
-                    maxW={300}
+                    placeholder='Enter a dish to pair...'
+                    marginTop={'1rem'}
+                    paddingRight={'10rem'}
+                    isRequired={true}
+                    borderColor={'blue.500'}
                 />
 
-                <Button 
-                    className={isLoading ? 'generate-button loading' : 'generate-button'}
-                    onClick={callGenerateEndpoint}>
-                        {isLoading ? <span className="loader"></span> : <p>Generate</p>}
-                </Button>
-            </Box>
 
+                <Button  
+                    // className={isLoading ? 'generate-button loading' : 'generate-button'}
+                    onClick={callGenerateEndpoint}>
+                        {isLoading ? <span className="loader"></span> :
+                        <Button 
+                            backgroundColor={'blue.400'}
+                            padding={'0.3rem'}
+                            borderRadius={'0.5rem'}
+                            color={'white'}
+                            _hover={{backgroundColor: 'blue.800'}}>
+                            Select a Dish
+                        </Button>}
+                </Button>
+                <hr style={{marginTop: '2rem', marginBottom: '2rem'}}></hr>
+            
             <Box>
-                    {openaiOutput.split(/(\d+\.\s)/).map((openaiOutput: string) => {
-                        const splitWineString = openaiOutput.split(" - ");
-                        let name = splitWineString[0];
-                        // console.log('this is the name', name)
-                        const description = splitWineString[1];
-                        console.log(name, description)
-                        name = name.replace(/^\d+\.\s/, "");
+            {openaiOutput.split(/(\d+\.\s)/).map((openaiOutput: string) => {
+                        const splitWineString = openaiOutput.split(" - ")
+                        const str = splitWineString.toString()
+                        const dishName = str.substring(0, str.indexOf(":"));
+                        const dishDescription = str.substring(str.indexOf(":") + 1 , str.length);
+                        const dishDescriptionFinal = dishDescription.replace(/^\d+\.\s/, "");
                         return (
-                        <Text key={name} >
-                            <Text>{name}</Text>
-                        </Text>
+                            <div>
+                            <Text as='b'>{dishName}</Text>
+                            <Text marginTop={'0.5rem'}>{dishDescriptionFinal}</Text>
+
+                             </div>
+                    
 
                         );
                     })}
                 </Box>
-            </Center>
         </Container>
   );
 };

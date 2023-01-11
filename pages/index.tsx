@@ -8,6 +8,7 @@ const Home: NextPage = () => {
   return (
     <>
     <Navbar />  
+    <Center>
     <Container maxW={'6xl'} >  
      
       <Flex display={{ base: 'none', md: 'flex' }}>
@@ -15,7 +16,9 @@ const Home: NextPage = () => {
       </Flex>
 
         <MobileNav />
+        
     </Container>
+    </Center>
     
     </>
   )
@@ -32,7 +35,7 @@ const MobileNav = () => {
       bg={useColorModeValue('white', 'gray.800')}
       display={{ md: 'none' }}
       >
-      <Navbar />
+      {/* <Navbar /> */}
       <Footer />
     </Stack>
   );
@@ -46,10 +49,8 @@ const DesktopNav = () => {
       {/* <Navbar /> */}
       <Container maxW="6xl" marginTop={'-2rem'}>
         <VStack>
-          <Center>
+          
           <Text> PocketSomm</Text>
-          <Text> PocketSomm</Text>
-        </Center>
         <Link href='/winepairing'> 
         <Box>
           Wine Pairing

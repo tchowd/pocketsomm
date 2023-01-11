@@ -10,10 +10,10 @@ const WinePairing: NextPage = () => {
   return (
     <>
     <Navbar />
-    <Container maxW="6xl" >
+    <Container maxW="8xl" >
         <Recommendation />
     </Container>
-    <Footer />
+    {/* <Footer /> */}
     </>
   )
 }
