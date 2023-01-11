@@ -91,11 +91,11 @@ const Recommendation = () => {
                         // const description = splitWineString[1];
                         const wineDescriptionFinal = wineDescription.replace(/^\d+\.\s/, "");
                         return (
-                            <div>
+                            <Text key={wineName}>
                             <Text as='b'>{wineName}</Text>
                             <Text marginTop={'0.5rem'}>{wineDescriptionFinal}</Text>
 
-                             </div>
+                             </Text>
                     
 
                         );

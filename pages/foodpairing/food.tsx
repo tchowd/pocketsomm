@@ -106,11 +106,11 @@ const DesktopNav = () => {
                         const dishDescription = str.substring(str.indexOf(":") + 1 , str.length);
                         const dishDescriptionFinal = dishDescription.replace(/^\d+\.\s/, "");
                         return (
-                            <div>
-                            <Text as='b'>{dishName}</Text>
+                            <Text key={dishName}>
+                            <Text as='b' >{dishName}</Text>
                             <Text marginTop={'0.5rem'}>{dishDescriptionFinal}</Text>
 
-                             </div>
+                             </Text>
                     
 
                         );
