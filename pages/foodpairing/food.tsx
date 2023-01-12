@@ -87,13 +87,16 @@ const DesktopNav = () => {
 
                 <Button  
                     className={isLoading ? 'generate-button loading' : 'generate-button'}
-                    onClick={callGenerateEndpoint}>
+                    onClick={callGenerateEndpoint}
+                    >
                         {isLoading ? <span className="loader"></span> :
                         <Button 
                             backgroundColor={'blue.400'}
                             padding={'0.3rem'}
                             borderRadius={'0.5rem'}
                             color={'white'}
+                            className={isLoading ? 'generate-button loading' : 'generate-button'}
+                            onClick={callGenerateEndpoint}
                             _hover={{backgroundColor: 'blue.800'}}>
                             Select a Dish
                         </Button>}
@@ -101,7 +104,7 @@ const DesktopNav = () => {
                 <hr style={{marginTop: '2rem', marginBottom: '2rem'}}></hr>
             
             <Box>
-            {openaiOutput?.split(/(\d+\.\s)/).map((openaiOutput: string) => {
+            {openaiOutput.split(/(\d+\.\s)/).map((openaiOutput: string) => {
                         const splitWineString = openaiOutput.split(" - ")
                         const str = splitWineString.toString()
                         const dishName = str.substring(0, str.indexOf(":"));
@@ -117,6 +120,7 @@ const DesktopNav = () => {
 
                         );
                     })}
+                    {openaiOutput}
                 </Box>
         </Container>
   );

@@ -8,6 +8,9 @@ const Recommendation = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [newSplitString, setNewSplitString] = useState('')
     const callGenerateEndpoint = async () => {
+        
+        if (isLoading) return;
+
         setIsLoading(true);
 
         const response = await fetch('/api/wine', {
