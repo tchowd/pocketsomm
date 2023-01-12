@@ -45,9 +45,11 @@ const DesktopNav = () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
             },
             body: JSON.stringify({ userInput }),
         });
+        console.log('response', response)
     
         const data = await response.json();
         const { output } = data;

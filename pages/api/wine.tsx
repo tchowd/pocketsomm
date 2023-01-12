@@ -7,7 +7,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const basePromptPrefix = "output the best 5 wine pairings in this format: year, name, region and explaination why it matches the food.";
-const generateAction = async (req: any, res: any) => {
+const generateDish = async (req: any, res: any) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
 
@@ -24,4 +24,4 @@ const generateAction = async (req: any, res: any) => {
   res.status(200).json({ output: basePromptOutput });
 };
 
-export default generateAction;
+export default generateDish;
