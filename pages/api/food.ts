@@ -1,3 +1,4 @@
+
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { 
   OpenAIApi,
@@ -15,20 +16,12 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const basePromptPrefix =
-`
-Answer a question as Stephen Hawking with the title below.
+const basePromptPrefix = "output the best 5 pairing food in this format: name, ingredients and explaination why it matches the wine.";
 
-Title:
-`
-
-async function handler(
+async function generateWine(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  // Run first prompt
-  console.info(`Prompt sending to the OpenAI API: ${basePromptPrefix}${req.body.userInput}\n`)
-
   try {
     const baseCompletion = await openai.createCompletion({
       model: 'text-davinci-003',
@@ -47,4 +40,4 @@ async function handler(
   }
 };
 
-export default handler;
+export default generateWine;
