@@ -64,6 +64,17 @@ const DesktopNav = () => {
         setUserInput(event.target.value);
     };
 
+
+
+    /////////////////////////
+    openaiOutput.split(/(\d+\.\s)/)
+    const splitWineString = openaiOutput.split(" - ")
+    const str = splitWineString.toString()
+    const dishName = str.substring(0, str.indexOf(":"));
+    const dishDescription = str.substring(str.indexOf(":") + 1 , str.length);
+    const dishDescriptionFinal = dishDescription.replace(/^\d+\.\s/, "");
+    /////////////////////////
+
   return (
     <Container margin={'5rem'}>
             
@@ -104,6 +115,7 @@ const DesktopNav = () => {
                 <hr style={{marginTop: '2rem', marginBottom: '2rem'}}></hr>
             
             <Box>
+              
             {openaiOutput.split(/(\d+\.\s)/).map((openaiOutput: string) => {
                         const splitWineString = openaiOutput.split(" - ")
                         const str = splitWineString.toString()
@@ -116,11 +128,10 @@ const DesktopNav = () => {
                             <Text marginTop={'0.5rem'}>{dishDescriptionFinal}</Text>
 
                              </Text>
-                    
-
+                  
                         );
                     })}
-                    {openaiOutput}
+                    
                 </Box>
         </Container>
   );

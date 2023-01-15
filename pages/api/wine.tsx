@@ -14,9 +14,11 @@ const generateDish = async (req: any, res: any) => {
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
     prompt: `${basePromptPrefix}${req.body.userInput}`,
-    temperature: 0.8,
+    temperature: 0.99,
     max_tokens: 1000,
     frequency_penalty: 0.6,
+    // top_p: 1,
+    // best_of: 10,
   });
   
   const basePromptOutput = baseCompletion.data.choices.pop();
