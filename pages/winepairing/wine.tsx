@@ -13,7 +13,7 @@ const Recommendation = () => {
 
         setIsLoading(true);
 
-        const response = await fetch('/api/wine', {
+        const response = await fetch('/api/test', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
