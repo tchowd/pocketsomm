@@ -26,7 +26,7 @@ const Recommendation = () => {
         console.log("OpenAI replied...", output.text)
 
         setOpenaiOutput(`${output.text}`);
-        setIsLoading(false);
+        // setIsLoading(false);
     };
 
     const userInputChange = (event: any) => {
@@ -60,13 +60,24 @@ const Recommendation = () => {
                     paddingRight={'10rem'}
                     isRequired={true}
                     borderColor={'blue.500'}
+                    marginRight={'1rem'}
+                    size={'lg'}
                 />
 
 
                 <Button  
                     className={isLoading ? 'generate-button loading' : 'generate-button'}
                     onClick={callGenerateEndpoint}>
-                        {isLoading ? <span className="loader"></span> :
+                        {isLoading ?
+                        <Button 
+                        backgroundColor={'blue.400'}
+                        padding={'0.3rem'}
+                        borderRadius={'0.5rem'}
+                        color={'white'}
+                        _hover={{backgroundColor: 'blue.800'}}>
+                        Loading...
+                        </Button>
+                        :
                         <Button 
                             backgroundColor={'blue.400'}
                             padding={'0.3rem'}
@@ -74,7 +85,8 @@ const Recommendation = () => {
                             color={'white'}
                             _hover={{backgroundColor: 'blue.800'}}>
                             Select a Wine
-                        </Button>}
+                        </Button>
+                        }
                 </Button>
                 <hr style={{marginTop: '2rem', marginBottom: '2rem'}}></hr>
             
@@ -87,19 +99,18 @@ const Recommendation = () => {
                         const splitWineString = openaiOutput.split(" - ")
                         // let name = splitWineString[0]
                         const str = splitWineString.toString()
-                        const wineName = str.substring(0, str.indexOf(","));
+                        const wineName = str.substring(0, str.indexOf(":"));
                         const wineDescription = str.substring(str.indexOf(":") + 1 , str.length);
 
 
                         const wineDescriptionFinal = wineDescription.replace(/^\d+\.\s/, "");
                         return (
-                            <Text key={wineName}>
+                            <div key={wineName}>
                             <Text as='b'>{wineName}</Text>
                             <Text marginTop={'0.5rem'}>{wineDescriptionFinal}</Text>
 
-                             </Text>
+                             </div>
                     
-
                         );
                     })}
                 </Box>

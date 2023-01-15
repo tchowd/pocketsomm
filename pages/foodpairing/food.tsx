@@ -41,7 +41,7 @@ const DesktopNav = () => {
     const callGenerateEndpoint = async () => {
         setIsLoading(true);
         console.log("Calling OpenAI...")
-        const response = await fetch('/api/food', {
+        const response = await fetch('/api/test', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

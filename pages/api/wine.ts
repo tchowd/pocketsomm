@@ -1,4 +1,4 @@
-import { Configuration, CreateCompletionResponseChoicesInner, OpenAIApi } from 'openai';
+import { Configuration, OpenAIApi } from 'openai';
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -7,7 +7,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const basePromptPrefix = "output the best 5 wine pairings in this format: year, name, region. next give an explaination why it matches the food.";
-const generateDish = async (req: { body: { userInput: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { output: CreateCompletionResponseChoicesInner | undefined; }): void; new(): any; }; }; }) => {
+const generateDish = async (req: any, res: any) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
 
