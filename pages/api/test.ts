@@ -15,8 +15,12 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const basePromptPrefix = `output the best 5 pairing food in this format: name, ingredients and explaination why it matches the wine.`;
+const basePromptPrefix =
+`
+Answer a question as Stephen Hawking with the title below.
 
+Title:
+`
 
 async function handler(
   req: NextApiRequest,
