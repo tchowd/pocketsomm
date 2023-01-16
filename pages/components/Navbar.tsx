@@ -168,13 +168,9 @@ import {
         bg={useColorModeValue('white', 'gray.800')}
         p={4}
         display={{ md: 'none' }}>
-       
-       {NAV_ITEMS.map((navItem) => (
-        <Text className={'secondaryFont'}> 
+        {NAV_ITEMS.map((navItem) => (
           <MobileNavItem key={navItem.label} {...navItem} />
-          </Text>
         ))}
-        
       </Stack>
     );
   };
