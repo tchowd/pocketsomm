@@ -26,8 +26,9 @@ async function generateDish(
     const baseCompletion = await openai.createCompletion({
       model: 'text-davinci-003',
       prompt: `${basePromptPrefix}${req.body.userInput}`,
-      temperature: 0.7,
-      max_tokens: 250,
+      temperature: 0.99,
+      max_tokens: 1250,
+      frequency_penalty: 0.6,
     });
     
     const basePromptOutput = baseCompletion.data.choices.pop();

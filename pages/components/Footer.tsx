@@ -41,20 +41,21 @@ import {
     );
   };
   
-  export default function SmallWithSocial() {
+  export default function Footer() {
     return (
       <Box
         bg={useColorModeValue('gray.50', 'gray.900')}
-        color={useColorModeValue('gray.700', 'gray.200')}>
+        color={useColorModeValue('gray.700', 'gray.200')}
+       >
         <Container
           as={Stack}
           maxW={'6xl'}
           py={4}
           direction={{ base: 'column', md: 'row' }}
-          spacing={4}
+          // spacing={4}
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
-          <Text marginLeft={'6rem'}>pocketsomm © 2023 </Text>
+          <Text>pocketsomm © 2023 </Text>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href="https://twitter.com/tchowd_">
               <FaTwitter />
