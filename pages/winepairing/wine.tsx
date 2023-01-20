@@ -195,28 +195,29 @@ const DesktopNav = () => {
                 />
 
 
-                <Button  
-                    className={isLoading ? 'generate-button loading' : 'generate-button'}
-                    onClick={callGenerateEndpoint}>
+                <div  
+                    // className={isLoading ? 'generate-button loading' : 'generate-button'}
+                    >
                         {isLoading ?
                         <Button 
-                        backgroundColor={'blue.400'}
-                        padding={'0.3rem'}
-                        borderRadius={'0.5rem'}
+                        className={'generate-button'}
                         color={'white'}
-                        _hover={{backgroundColor: 'blue.800'}}>
+                        _hover={{backgroundColor: 'blue.800'}}
+                        onClick={callGenerateEndpoint}>
                         Loading...
                         </Button>
                         :
                         <Button 
-                            padding={'0.3rem'}
-                            borderRadius={'0.5rem'}
+                            // padding={'0.3rem'}
+                            // borderRadius={'0.5rem'}
+                            onClick={callGenerateEndpoint}
                             color={'white'}
+                            className={'generate-button'}
                             >
                             Discover a Wine
                         </Button>
                         }
-                </Button>
+                </div>
                 </HStack>
                 <hr style={{marginTop: '2rem', marginBottom: '2rem'}}></hr>
             

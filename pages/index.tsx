@@ -67,7 +67,7 @@ const DesktopNav = () => {
   return (
     <div >
       {/* <Navbar /> */}
-      <Container marginTop={'18rem'}>
+      <Container marginTop={'10rem'}>
         <VStack>
           
           <Text fontSize={'7rem'}  className={'primaryFont'}> PocketSomm</Text>
