@@ -2,21 +2,20 @@ import type { NextPage } from 'next'
 import { Text, Center, Container, Flex, HStack, Link, Stack, useColorModeValue, VStack, Box } from '@chakra-ui/react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import Marquee from "react-fast-marquee";
+// import Marquee from "react-fast-marquee";
 import {
   useWindowSize,
   useWindowWidth,
   useWindowHeight,
 } from '@react-hook/window-size'
 import HomeTitle from './components/HomeTitle';
-import  '../styles/Home.module.css'
+// import  '../styles/Home.module.css'
 
 
 
 const Home: NextPage = () => {
-  const [width, height] = useWindowSize()
   return (
-    <Box  backgroundColor={'black'}>
+    <Box backgroundColor={'black'}>
     {/* <Navbar />   */}
 
     <Center>
@@ -79,7 +78,7 @@ const MobileNav = () => {
 const DesktopNav = () => {
   const [width, height] = useWindowSize()
   return (
-    <Box width={width}>
+    <Box >
       {/* <Navbar /> */}
       <div style={{marginTop: '-2rem'}}>
         <HomeTitle />
@@ -101,7 +100,7 @@ const DesktopNav = () => {
         </VStack>
         </Container>
       {/* <Footer /> */}
-      <div className='monitorSizing'>
+      <div className=''>
         <HomeTitle />
       </div>
       </Box>
