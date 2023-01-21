@@ -2,25 +2,36 @@ import type { NextPage } from 'next'
 import { Text, Center, Container, Flex, HStack, Link, Stack, useColorModeValue, VStack, Box } from '@chakra-ui/react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Marquee from "react-fast-marquee";
+import {
+  useWindowSize,
+  useWindowWidth,
+  useWindowHeight,
+} from '@react-hook/window-size'
+import HomeTitle from './components/HomeTitle';
+import  '../styles/Home.module.css'
+
 
 
 const Home: NextPage = () => {
+  const [width, height] = useWindowSize()
   return (
-    <>
-    <Navbar />  
+    <Box maxW={width} maxH={height} backgroundColor={'black'}>
+    {/* <Navbar />   */}
+
     <Center>
-    <Container maxW={'6xl'} >  
+    <Container  >  
      
-      <Flex display={{ base: 'none', md: 'flex' }}>
+      <Flex  display={{ base: 'none', md: 'flex' }} >
           <DesktopNav />
       </Flex>
-
         <MobileNav />
         
     </Container>
     </Center>
     
-    </>
+    
+    </Box>
   )
 }
 
@@ -30,18 +41,20 @@ export default Home
 
 
 const MobileNav = () => {
+  const [width, height] = useWindowSize()
   return (
     <Stack
-      bg={useColorModeValue('white', 'gray.800')}
-      display={{ md: 'none' }}
+      display={{ md: 'none' }} 
       >
+        <div style={{marginTop: '-2rem'}}>
+        <HomeTitle />
+        </div>
       <div >
       {/* <Navbar /> */}
       <Container marginTop={'15rem'}>
-        <VStack>
-          
-          <Text fontSize={'2.9rem'}  className={'primaryFont'}> PocketSomm</Text>
-          <Text fontSize={'0.9rem'} paddingRight={'3rem'} paddingLeft={'3rem'}> Welcome to your pocket sommelier. Choose your pairing and let us guide your next meal.</Text>
+        <VStack> 
+          <Text fontSize={'1.5rem'} > Je suis ton sommelier. </Text>
+         <Text fontSize={'1.05rem'} style={{textAlign: 'center'}}> Choose your pairing and let us guide your next meal.</Text>
         <Link href='/winepairing'> 
         <Box marginTop={'2rem'}>
           <Text className={'primaryFont'} fontSize={'1.5rem'}> Wine Pairing</Text>
@@ -54,23 +67,26 @@ const MobileNav = () => {
         </Link>
         </VStack>
         </Container>
-      {/* <Footer /> */}
       </div>
-      {/* <Footer /> */}
+      <div style={{marginTop: '10rem'}}>
+        <HomeTitle />
+      </div>
     </Stack>
   );
 };
 
 
 const DesktopNav = () => {
-
+  const [width, height] = useWindowSize()
   return (
-    <div >
+    <Box width={width}>
       {/* <Navbar /> */}
-      <Container marginTop={'10rem'}>
-        <VStack>
-          
-          <Text fontSize={'7rem'}  className={'primaryFont'}> PocketSomm</Text>
+      <div style={{marginTop: '-2rem'}}>
+        <HomeTitle />
+        </div>
+      <Container marginTop={'10rem'}  >
+        
+        <VStack >
           <Text> Welcome to your pocket sommelier. Choose your pairing and let us guide your next meal.</Text>
         <Link href='/winepairing'> 
         <Box>
@@ -85,7 +101,10 @@ const DesktopNav = () => {
         </VStack>
         </Container>
       {/* <Footer /> */}
+      <div className='monitorSizing'>
+        <HomeTitle />
       </div>
+      </Box>
   );
 };
 
