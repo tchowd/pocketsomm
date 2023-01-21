@@ -16,7 +16,7 @@ import  '../styles/Home.module.css'
 const Home: NextPage = () => {
   const [width, height] = useWindowSize()
   return (
-    <Box maxW={width} maxH={height} backgroundColor={'black'}>
+    <Box  backgroundColor={'black'}>
     {/* <Navbar />   */}
 
     <Center>
@@ -51,7 +51,7 @@ const MobileNav = () => {
         </div>
       <div >
       {/* <Navbar /> */}
-      <Container marginTop={'15rem'}>
+      <Container marginTop={'10rem'}>
         <VStack> 
           <Text fontSize={'1.5rem'} > Je suis ton sommelier. </Text>
          <Text fontSize={'1.05rem'} style={{textAlign: 'center'}}> Choose your pairing and let us guide your next meal.</Text>
@@ -68,7 +68,7 @@ const MobileNav = () => {
         </VStack>
         </Container>
       </div>
-      <div style={{marginTop: '10rem'}}>
+      <div style={{marginTop: '15rem'}}>
         <HomeTitle />
       </div>
     </Stack>
