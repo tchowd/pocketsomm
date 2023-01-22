@@ -50,7 +50,7 @@ const Recommendation = () => {
       };
     return (
       <Stack
-        bg={useColorModeValue('white', 'gray.800')}
+        bg={'black'}
         display={{ md: 'none' }}
         >
       <Container maxW={'xl'} marginBottom={'18rem'}>
@@ -65,7 +65,7 @@ const Recommendation = () => {
   
           <VStack>
                   <Textarea
-  
+                      bg={useColorModeValue('white', 'gray.800')}
                       value={userInput}
                       onChange={userInputChange}
                       placeholder='Enter a dish to pair...'
@@ -172,8 +172,8 @@ const DesktopNav = () => {
 
     return (
 
-        <Container margin={'5rem'}>
-            {/* <Center></Center> */}
+        <Container marginLeft={'10rem'} marginTop={'5rem'}>
+            
             <Text fontSize="5xl" fontWeight="b" mb={4} className={'primaryFont'}>
                 Wine Pairing
             </Text>
@@ -182,6 +182,7 @@ const DesktopNav = () => {
             </Text>
                 <HStack>
                 <Textarea
+                    bg={useColorModeValue('white', 'gray.800')}
                     value={userInput}
                     onChange={userInputChange}
                     placeholder='Enter a dish to pair...'

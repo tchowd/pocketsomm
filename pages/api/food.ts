@@ -16,7 +16,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const basePromptPrefix = "output the best 5 pairing food in this format: name, ingredients and explaination why it matches the wine.";
+const basePromptPrefix = "output the best 3 pairing food in this format: name and explaination why it matches the wine.";
 
 async function generateWine(
   req: NextApiRequest,
@@ -26,9 +26,9 @@ async function generateWine(
     const baseCompletion = await openai.createCompletion({
       model: 'text-davinci-003',
       prompt: `${basePromptPrefix}${req.body.userInput}`,
-      temperature: 0.99,
-      max_tokens: 1250,
-      frequency_penalty: 0.6,
+      temperature: 0.8,
+      max_tokens: 410,
+      presence_penalty: 0.6,
     });
     
     const basePromptOutput = baseCompletion.data.choices.pop();

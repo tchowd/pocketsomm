@@ -49,7 +49,7 @@ const MobileNav = () => {
     };
   return (
     <Stack
-      bg={useColorModeValue('white', 'gray.800')}
+      bg={'black'}
       display={{ md: 'none' }}
       >
     <Container maxW={'xl'} marginBottom={'18rem'}>
@@ -64,7 +64,7 @@ const MobileNav = () => {
 
         <VStack>
                 <Textarea
-
+                    bg={useColorModeValue('white', 'gray.800')}
                     value={userInput}
                     onChange={userInputChange}
                     placeholder='Enter a wine to pair...'
@@ -163,7 +163,7 @@ const DesktopNav = () => {
 
 
   return (
-    <Container margin={'5rem'}>
+    <Container marginLeft={'10rem'} marginTop={'5rem'}>
             
             <Text fontSize="5xl" fontWeight="b" mb={4} className={'primaryFont'}>
                 Food Pairing
@@ -173,6 +173,7 @@ const DesktopNav = () => {
             </Text>
             <HStack>
                 <Textarea
+                    bg={useColorModeValue('white', 'gray.800')}
                     value={userInput}
                     onChange={userInputChange}
                     placeholder='Enter a wine to pair...'
@@ -186,28 +187,28 @@ const DesktopNav = () => {
                 />
 
 
-                <Button  
-                    className={isLoading ? 'generate-button loading' : 'generate-button'}
-                    onClick={callGenerateEndpoint}>
+                    <div  
+                    >
                         {isLoading ?
                         <Button 
-                        backgroundColor={'blue.400'}
-                        padding={'0.3rem'}
-                        borderRadius={'0.5rem'}
+                        className={'generate-button'}
                         color={'white'}
-                        _hover={{backgroundColor: 'blue.800'}}>
+                        _hover={{backgroundColor: 'blue.800'}}
+                        onClick={callGenerateEndpoint}>
                         Loading...
                         </Button>
                         :
                         <Button 
-                            padding={'0.3rem'}
-                            borderRadius={'0.5rem'}
+                            // padding={'0.3rem'}
+                            // borderRadius={'0.5rem'}
+                            onClick={callGenerateEndpoint}
                             color={'white'}
+                            className={'generate-button'}
                             >
                             Discover a Dish
                         </Button>
                         }
-                </Button>
+                </div>
                 </HStack>
                 <hr style={{marginTop: '2rem', marginBottom: '2rem'}}></hr>
             

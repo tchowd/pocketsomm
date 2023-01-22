@@ -33,8 +33,7 @@ import {
     return (
       <Box>
         <Flex
-          bg={useColorModeValue('white', 'gray.800')}
-          color={useColorModeValue('gray.600', 'white')}
+          bg={'black'}
           minH={'60px'}
           py={{ base: 2 }}
           px={{ base: 4 }}
@@ -77,14 +76,14 @@ import {
   }
   
   const DesktopNav = () => {
-    const linkColor = useColorModeValue('gray.600', 'gray.200');
-    const linkHoverColor = useColorModeValue('gray.800', 'white');
+    const linkColor = useColorModeValue('white.600', 'gray.200');
+    const linkHoverColor = useColorModeValue('white.800', 'white');
     const popoverContentBgColor = useColorModeValue('white', 'gray.800');
     const { isOpen, onToggle } = useDisclosure();
     const { colorMode, toggleColorMode } = useColorMode();
 
     return (
-      <Stack direction={'row'} spacing={4}>
+      <Stack direction={'row'} spacing={4} bg={'black'} margin={'2rem'}>
         
         {NAV_ITEMS.map((navItem) => (
           <Box key={navItem.label}>
@@ -128,44 +127,12 @@ import {
       </Stack>
     );
   };
-  
-  // const DesktopSubNav = ({ label, href }: NavItem) => {
-  //   return (
-  //     <Link
-  //       href={href}
-  //       role={'group'}
-  //       display={'block'}
-  //       p={2}
-  //       rounded={'md'}
-  //       _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
-  //       <Stack direction={'row'} align={'center'}>
-  //         <Box>
-  //           <Text
-  //             transition={'all .3s ease'}
-  //             _groupHover={{ color: 'pink.400' }}
-  //             fontWeight={500}>
-  //             {label}
-  //           </Text>
-  //         </Box>
-  //         <Flex
-  //           transition={'all .3s ease'}
-  //           transform={'translateX(-10px)'}
-  //           opacity={0}
-  //           _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
-  //           justify={'flex-end'}
-  //           align={'center'}
-  //           flex={1}>
-  //           <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
-  //         </Flex>
-  //       </Stack>
-  //     </Link>
-  //   );
-  // };
+ 
   
   const MobileNav = () => {
     return (
       <Stack
-        bg={useColorModeValue('white', 'gray.800')}
+        bg={'black'}
         p={4}
         display={{ md: 'none' }}>
         {NAV_ITEMS.map((navItem) => (
@@ -179,7 +146,7 @@ import {
     const { isOpen, onToggle } = useDisclosure();
   
     return (
-      <Stack spacing={4} onClick={children && onToggle}>
+      <Stack spacing={4} onClick={children && onToggle}  >
         <Flex
           py={2}
           as={Link}
@@ -191,7 +158,7 @@ import {
           }}>
           <Text
             fontWeight={600}
-            color={useColorModeValue('gray.600', 'gray.200')}>
+            color={'white'}>
             {label}
           </Text>
           {children && (

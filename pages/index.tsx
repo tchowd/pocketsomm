@@ -9,7 +9,7 @@ import {
   useWindowHeight,
 } from '@react-hook/window-size'
 import HomeTitle from './components/HomeTitle';
-// import  '../styles/Home.module.css'
+import  '../styles/Home.module.css'
 
 
 
@@ -43,21 +43,19 @@ const MobileNav = () => {
   const [width, height] = useWindowSize()
   return (
     <Stack
-      display={{ md: 'none' }} 
+      display={{ md: 'none' }} style={{marginTop: '2rem'}}
       >
-        <div style={{marginTop: '-2rem'}}>
+        <Box style={{marginTop: '-2rem', maxWidth: '414px'}}>
         <HomeTitle />
-        </div>
+      </Box>
       <div >
       {/* <Navbar /> */}
-      <Container marginTop={'10rem'}>
+      <Container marginTop={'8rem'} padding={'2rem'}>
         <VStack> 
           <Text fontSize={'1.5rem'} > Je suis ton sommelier. </Text>
-         <Text fontSize={'1.05rem'} style={{textAlign: 'center'}}> Choose your pairing and let us guide your next meal.</Text>
-        <Link href='/winepairing'> 
-        <Box marginTop={'2rem'}>
+         <Text fontSize={'1.05rem'} style={{textAlign: 'center', marginBottom: '2rem'}}> Choose your pairing and let us guide your next meal.</Text>
+        <Link href='/winepairing' > 
           <Text className={'primaryFont'} fontSize={'1.5rem'}> Wine Pairing</Text>
-        </Box>
         </Link>
         <Link href='/foodpairing'> 
         <Box>
@@ -67,9 +65,9 @@ const MobileNav = () => {
         </VStack>
         </Container>
       </div>
-      <div style={{marginTop: '15rem'}}>
+      <Box style={{marginTop: '8rem', maxWidth: '414px'}}>
         <HomeTitle />
-      </div>
+      </Box>
     </Stack>
   );
 };

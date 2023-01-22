@@ -6,6 +6,7 @@ import {
 
 import Marquee from 'react-fast-marquee';
 import { useWindowSize } from '@react-hook/window-size';
+import  '../../styles/Home.module.css'
 
   
   export default function HomeTitle() {
@@ -13,8 +14,8 @@ import { useWindowSize } from '@react-hook/window-size';
     const [width, height] = useWindowSize()
 
     return (
-      <Stack direction={'row'}  width={width}  >
-      <Marquee loop={0} speed={150} gradient={false}>
+      <Stack direction={'row'} >
+      <Marquee loop={0} speed={150} gradient={false} className={'monitorSizing'}>
           <Text fontSize={'8rem'}  className={'primaryFont'}> &nbsp; PocketSomm &nbsp;</Text>
           <Text fontSize={'8rem'}  className={'primaryFont'}>  &nbsp;PocketSomm &nbsp;</Text>
         </Marquee>

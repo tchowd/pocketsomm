@@ -28,7 +28,6 @@ async function generateDish(
       prompt: `${basePromptPrefix}${req.body.userInput}`,
       temperature: 0.8,
       max_tokens: 410,
-      // frequency_penalty: 0.6,
       presence_penalty: 0.6,
     });
     
