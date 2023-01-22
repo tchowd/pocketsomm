@@ -14,8 +14,10 @@ import  '../../styles/Home.module.css'
     const [width, height] = useWindowSize()
 
     return (
-      <Stack direction={'row'} >
-      <Marquee loop={0} speed={150} gradient={false} className={'monitorSizing'}>
+      <Stack >
+      <Marquee loop={0} speed={100} gradient={false} className={'monitorSizing'}>
+          <Text fontSize={'8rem'}  className={'primaryFont'}> &nbsp; PocketSomm &nbsp;</Text>
+          <Text fontSize={'8rem'}  className={'primaryFont'}>  &nbsp;PocketSomm &nbsp;</Text>
           <Text fontSize={'8rem'}  className={'primaryFont'}> &nbsp; PocketSomm &nbsp;</Text>
           <Text fontSize={'8rem'}  className={'primaryFont'}>  &nbsp;PocketSomm &nbsp;</Text>
         </Marquee>
